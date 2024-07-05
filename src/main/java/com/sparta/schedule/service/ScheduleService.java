@@ -21,7 +21,7 @@ public class ScheduleService {
         this.scheduleRepository = scheduleRepository;
     }
 
-    public ScheduleResponseDto createSchedule(@RequestBody ScheduleRequestDto requestDto, UserDetailsImpl userDetails) {
+    public ScheduleResponseDto createSchedule(ScheduleRequestDto requestDto, UserDetailsImpl userDetails) {
         User user = userDetails.getUser();
 
         Schedule schedule = new Schedule(requestDto, user);
@@ -31,11 +31,6 @@ public class ScheduleService {
         ScheduleResponseDto scheduleResponseDto = new ScheduleResponseDto(schedule);
 
         return scheduleResponseDto;
-    }
-
-    public List<ScheduleResponseDto> getSchedule(Long id){
-
-        return scheduleRepository.findAllById(Collections.singleton(id)).stream().map(ScheduleResponseDto::new).toList();
     }
 
     public List<ScheduleResponseDto> getAllSchedule(){

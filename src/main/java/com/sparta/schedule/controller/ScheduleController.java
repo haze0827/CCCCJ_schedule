@@ -25,12 +25,6 @@ public class ScheduleController {
         return scheduleService.createSchedule(requestDto, authentication);
     }
 
-    //단건조회
-    @GetMapping("/{id}")
-    public List<ScheduleResponseDto> getSchedule(@PathVariable Long id){
-        return scheduleService.getSchedule(id);
-    }
-
 
     //전체조회
     @GetMapping
